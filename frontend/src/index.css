@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+/* ─── Theme tokens (light = default, dark = html.dark) ─── */
+:root {
+  color-scheme: light;
+
+  --app-body-bg: #e8eaef;
+  --app-surface: #f4f5f9;
+  --app-surface-raised: #ffffff;
+  --app-surface-overlay: #eef0f5;
+  --app-border: rgba(15, 23, 42, 0.08);
+  --app-border-light: rgba(15, 23, 42, 0.12);
+  --app-text: #0f172a;
+  --app-text-secondary: #475569;
+  --app-text-tertiary: #94a3b8;
+  --app-card-bg: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  --app-card-inset: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  --app-glow-1: radial-gradient(ellipse 90% 45% at 50% -8%, rgba(244, 63, 94, 0.08), transparent 55%);
+  --app-glow-2: radial-gradient(ellipse 50% 35% at 100% 20%, rgba(96, 165, 250, 0.05), transparent);
+  --app-shell-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06), 0 24px 64px rgba(15, 23, 42, 0.12);
+  --app-nav-shadow: 0 -4px 24px rgba(15, 23, 42, 0.08);
+}
+
+html.dark {
+  color-scheme: dark;
+
+  --app-body-bg: #050508;
+  --app-surface: #0c0c14;
+  --app-surface-raised: #14141f;
+  --app-surface-overlay: #1c1c2b;
+  --app-border: rgba(255, 255, 255, 0.06);
+  --app-border-light: rgba(255, 255, 255, 0.11);
+  --app-text: #f4f4f6;
+  --app-text-secondary: #a1a1aa;
+  --app-text-tertiary: #71717a;
+  --app-card-bg: linear-gradient(145deg, rgba(28, 28, 43, 0.9) 0%, rgba(20, 20, 31, 0.95) 100%);
+  --app-card-inset: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  --app-glow-1: radial-gradient(ellipse 90% 45% at 50% -8%, rgba(244, 63, 94, 0.14), transparent 55%);
+  --app-glow-2: radial-gradient(ellipse 50% 35% at 100% 20%, rgba(96, 165, 250, 0.06), transparent);
+  --app-shell-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 24px 80px rgba(0, 0, 0, 0.55);
+  --app-nav-shadow: 0 -8px 32px rgba(0, 0, 0, 0.35);
+}
+
+@theme {
+  --color-brand-50: #fff1f2;
+  --color-brand-100: #ffe4e6;
+  --color-brand-200: #fecdd3;
+  --color-brand-300: #fda4af;
+  --color-brand-400: #fb7185;
+  --color-brand-500: #f43f5e;
+  --color-brand-600: #e11d48;
+  --color-brand-700: #be123c;
+
+  --color-surface: var(--app-surface);
+  --color-surface-raised: var(--app-surface-raised);
+  --color-surface-overlay: var(--app-surface-overlay);
+
+  --color-border: var(--app-border);
+  --color-border-light: var(--app-border-light);
+
+  --color-text: var(--app-text);
+  --color-text-secondary: var(--app-text-secondary);
+  --color-text-tertiary: var(--app-text-tertiary);
+
+  --color-success: #34d399;
+  --color-success-muted: rgba(52, 211, 153, 0.12);
+  --color-danger: #f43f5e;
+  --color-danger-muted: rgba(244, 63, 94, 0.12);
+  --color-warning: #fbbf24;
+  --color-warning-muted: rgba(251, 191, 36, 0.1);
+  --color-info: #60a5fa;
+  --color-info-muted: rgba(96, 165, 250, 0.1);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--app-body-bg);
+    color: var(--app-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(244, 63, 94, 0.35);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.25);
+    border-radius: 4px;
+  }
+}
+
+/* ─── App Shell (no document scroll — only .page-content scrolls) ─── */
+.app-container {
+  @apply relative mx-auto flex h-dvh max-h-dvh w-full max-w-md flex-col overflow-hidden;
+  background: var(--app-surface);
+  box-shadow: var(--app-shell-shadow);
+}
+
+.app-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--app-glow-1), var(--app-glow-2);
+}
+
+.app-shell {
+  @apply flex min-h-0 flex-1 flex-col overflow-hidden;
+}
+
+.page-content {
+  @apply min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-content-no-nav {
+  @apply min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain;
+}
+
+/* ─── Cards ─── */
+.glass-card {
+  background: var(--app-card-bg);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: var(--app-card-inset);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--app-border-light);
+}
+
+.section-label {
+  @apply mb-2.5 px-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-text-tertiary;
+}
+
+/* ─── Auth pages ─── */
+.auth-page {
+  @apply relative flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-6 py-10;
+  background: var(--app-surface);
+}
+
+.auth-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--app-glow-1);
+}
+
+.auth-logo {
+  @apply mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-border-light;
+  background: linear-gradient(145deg, rgba(244, 63, 94, 0.12), var(--app-surface-raised));
+  box-shadow: 0 8px 24px rgba(244, 63, 94, 0.12);
+}
+
+.auth-demo-chip {
+  @apply mt-6 rounded-2xl border border-border bg-surface-raised px-4 py-3 text-center text-xs text-text-secondary;
+}
+
+/* ─── Bottom nav (in-flow, not fixed) ─── */
+.bottom-nav {
+  @apply shrink-0 border-t border-border bg-surface-raised;
+  box-shadow: var(--app-nav-shadow);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ─── Animations ─── */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 24px rgba(244, 63, 94, 0.2),
+      0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(244, 63, 94, 0.45),
+      0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
