@@ -27,10 +27,11 @@ SecureStep splits processing tasks between a decoupled single-page application (
     ├── public/
     │   └── firebase-messaging-sw.js  # Background worker for incoming FCM push
     ├── .env.example         # Example client environment file
-    └── package.json```
+    └── package.json
+```
 
 
-⚙️ Environment Configuration
+##⚙️ Environment Configuration
 To run SecureStep locally or in production, you must configure target .env files in their respective roots.
 
 1. Backend Configuration (backend/.env)
