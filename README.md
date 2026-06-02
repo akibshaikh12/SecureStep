@@ -45,7 +45,7 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...\n-----END P
 
 
 ## 2. Frontend Configuration (frontend/.env)
-
+```
 VITE_API_BASE_URL=http://localhost:5000
 VITE_FIREBASE_API_KEY=AIzaSyA1...
 VITE_FIREBASE_AUTH_DOMAIN=your-app.firebaseapp.com
@@ -57,22 +57,25 @@ VITE_FIREBASE_VAPID_KEY=BPD...your_public_vapid_key...
 VITE_EMAILJS_SERVICE_ID=service_xxx
 VITE_EMAILJS_TEMPLATE_ID=template_xxx
 VITE_EMAILJS_PUBLIC_KEY=user_xxx
+```
 
 
 ## Step 2: Initialize Database Architecture
-
+```
 cd backend
 npm install
 npm run db:migrate
 
-
+```
 ## Step 3: Run the Application Services
 
 Terminal 1 (Backend Server Instance):
+```
 cd backend
 npm start
-
+```
 Terminal 2 (Frontend Client Instance):
+```
 cd frontend
 npm install
 npm run dev
