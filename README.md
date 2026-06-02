@@ -46,7 +46,7 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...\n-----END P
 
 ## 2. Frontend Configuration (frontend/.env)
 
-VITE_API_BASE_URL=http://localhost:5000
+VITE_API_BASE_URL=http://localhost:5000\n
 VITE_FIREBASE_API_KEY=AIzaSyA1...
 VITE_FIREBASE_AUTH_DOMAIN=your-app.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your-app
