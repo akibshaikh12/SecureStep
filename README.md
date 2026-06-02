@@ -28,3 +28,50 @@ SecureStep splits processing tasks between a decoupled single-page application (
     │   └── firebase-messaging-sw.js  # Background worker for incoming FCM push
     ├── .env.example         # Example client environment file
     └── package.json
+
+
+⚙️ Environment Configuration
+To run SecureStep locally or in production, you must configure target .env files in their respective roots.
+
+1. Backend Configuration (backend/.env)
+
+PORT=5000
+DATABASE_URL=postgresql://<user>:<password>@<neon-host>/securestep?sslmode=require
+JWT_SECRET=your_super_secret_jwt_key
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk@your-project.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...\n-----END PRIVATE KEY-----"
+
+
+2. Frontend Configuration (frontend/.env)
+
+VITE_API_BASE_URL=http://localhost:5000
+VITE_FIREBASE_API_KEY=AIzaSyA1...
+VITE_FIREBASE_AUTH_DOMAIN=your-app.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your-app
+VITE_FIREBASE_STORAGE_BUCKET=your-app.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=1234567890
+VITE_FIREBASE_APP_ID=1:1234:web:abcd
+VITE_FIREBASE_VAPID_KEY=BPD...your_public_vapid_key...
+VITE_EMAILJS_SERVICE_ID=service_xxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxx
+VITE_EMAILJS_PUBLIC_KEY=user_xxx
+
+
+Step 2: Initialize Database Architecture
+
+cd backend
+npm install
+npm run db:migrate
+
+
+Step 3: Run the Application Services
+
+Terminal 1 (Backend Server Instance):
+cd backend
+npm start
+
+Terminal 2 (Frontend Client Instance):
+cd frontend
+npm install
+npm run dev
