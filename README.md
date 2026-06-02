@@ -27,7 +27,7 @@ SecureStep splits processing tasks between a decoupled single-page application (
     ├── public/
     │   └── firebase-messaging-sw.js  # Background worker for incoming FCM push
     ├── .env.example         # Example client environment file
-    └── package.json
+    └── package.json```
 
 
 ⚙️ Environment Configuration
