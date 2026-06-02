@@ -31,10 +31,10 @@ SecureStep splits processing tasks between a decoupled single-page application (
 ```
 
 
-##⚙️ Environment Configuration
+# ⚙️ Environment Configuration
 To run SecureStep locally or in production, you must configure target .env files in their respective roots.
 
-1. Backend Configuration (backend/.env)
+## 1. Backend Configuration (backend/.env)
 
 PORT=5000
 DATABASE_URL=postgresql://<user>:<password>@<neon-host>/securestep?sslmode=require
@@ -44,7 +44,7 @@ FIREBASE_CLIENT_EMAIL=firebase-adminsdk@your-project.iam.gserviceaccount.com
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...\n-----END PRIVATE KEY-----"
 
 
-2. Frontend Configuration (frontend/.env)
+## 2. Frontend Configuration (frontend/.env)
 
 VITE_API_BASE_URL=http://localhost:5000
 VITE_FIREBASE_API_KEY=AIzaSyA1...
@@ -59,14 +59,14 @@ VITE_EMAILJS_TEMPLATE_ID=template_xxx
 VITE_EMAILJS_PUBLIC_KEY=user_xxx
 
 
-Step 2: Initialize Database Architecture
+## Step 2: Initialize Database Architecture
 
 cd backend
 npm install
 npm run db:migrate
 
 
-Step 3: Run the Application Services
+## Step 3: Run the Application Services
 
 Terminal 1 (Backend Server Instance):
 cd backend
