@@ -6,6 +6,7 @@ SecureStep is an end-to-end emergency SOS and automated evidence collection plat
 
 ## 🚀 System Architecture Overview
 
+
 SecureStep splits processing tasks between a decoupled single-page application (SPA) client layer and an asynchronous operational backend service.
 
 * **Frontend:** React  (SPA) managed by Vite, styled with Tailwind CSS, leveraging Lucide React for iconography. It uses the Firebase Web SDK for Web Push capabilities and client-side EmailJS for localized verification loops.
