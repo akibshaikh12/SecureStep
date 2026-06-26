@@ -8,7 +8,7 @@ SecureStep is an end-to-end emergency SOS and automated evidence collection plat
 
 SecureStep splits processing tasks between a decoupled single-page application (SPA) client layer and an asynchronous operational backend service.
 
-* **Frontend:** React (SPA) managed by Vite, styled with Tailwind CSS, leveraging Lucide React for iconography. It uses the Firebase Web SDK for Web Push capabilities and client-side EmailJS for localized verification loops.
+* **Frontend:** React  (SPA) managed by Vite, styled with Tailwind CSS, leveraging Lucide React for iconography. It uses the Firebase Web SDK for Web Push capabilities and client-side EmailJS for localized verification loops.
 * **Backend:** Node.js and Express.js REST API layer that interfaces with Neon PostgreSQL (via `pg`) for authentication boundaries and maintains localized JSON schemas for high-speed tracking data.
 * **Data Storage Matrix:** 
   * **Neon Postgres (Transactional):** User accounts, cryptographic password signatures (`bcrypt`), and pending registration OTP data.
