@@ -1,6 +1,5 @@
 # SecureStep 🛡️
 
-
 SecureStep is an end-to-end emergency SOS and automated evidence collection platform. Built to balance transactional identity data with real-time incident tracking, the application captures instant ambient environment data (encrypted photo overlays and microphone audio loops) when an SOS is triggered, instantly alerting a user's verified contact network via Firebase Cloud Messaging (FCM).
 
 ---
