@@ -21,6 +21,7 @@ SecureStep splits processing tasks between a decoupled single-page application (
 ## 🛠️ Repository File Structure
 
 
+
 ```text
 ├── backend/
 │   ├── store.json           # Operational data ledger (Incidents/Evidence/Contacts)
